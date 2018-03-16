@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'http://ec2-18-188-72-17.us-east-2.compute.amazonaws.com/',
+      host: 'ec2-18-188-72-17.us-east-2.compute.amazonaws.com',
       key: '~/.ssh/tutorialkeypair.pem',
       ref: 'origin/master',
       repo: 'git@github.com:louboarman/gazooAPIRepo.git',
