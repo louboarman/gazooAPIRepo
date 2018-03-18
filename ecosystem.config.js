@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/tutorialkeypair.pem',
       ref: 'origin/master',
       repo: 'git@github.com:louboarman/gazooAPIRepo.git',
-      path: '/home/ubuntu/GazooAPIRepo',
+      path: '/home/ubuntu/GazooAPIRepo/gazoo-api/index.js',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
