@@ -1,0 +1,22 @@
+{
+  "name": "gazooapirepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louboarman/gazooAPIRepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louboarman/gazooAPIRepo/issues"
+  },
+  "homepage": "https://github.com/louboarman/gazooAPIRepo#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
