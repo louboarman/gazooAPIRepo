@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'gazooAPI',
-    script: './index.js'
+    script: './app.js'
   }],
   deploy: {
     production: {
@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/tutorialkeypair.pem',
       ref: 'origin/master',
       repo: 'git@github.com:louboarman/gazooAPIRepo.git',
-      path: '/home/ubuntu/GazooAPIRepo/index.js',
+      path: '/home/ubuntu/GazooAPIRepo/app.js',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
