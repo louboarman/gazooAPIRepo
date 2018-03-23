@@ -19,7 +19,7 @@ var cn = {
 var db = pgp(cn);
 
 function getAllPlayers(req, res, next) {
-  db.any('select name from player')
+  db.any('select * from player')
     .then(function (data) {
       res.status(200)
         .json({
