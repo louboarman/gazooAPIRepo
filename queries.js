@@ -24,7 +24,7 @@ function getAllPlayers(req, res, next) {
       res.status(200)
         .json({
           status: 'success',
-          data: json().data,
+          data: JSON.parse(data),
           message: 'Retrieved ALL players'
         });
     })
