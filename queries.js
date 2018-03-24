@@ -19,13 +19,13 @@ var cn = {
 var db = pgp(cn);
 
 function getAllPlayers(req, res, next) {
-  db.any('select json_agg(player) from player')
+  db.any('SELECT json_agg(player) FROM player')
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved ALL players'
+          message: 'Retrieved all players'
         });
     })
     .catch(function (err) {
