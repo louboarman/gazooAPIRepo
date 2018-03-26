@@ -22,9 +22,9 @@ function getAllPlayers(req, res, next) {
   db.any('SELECT name FROM player')
     .then(function (data) {
       res.status(200)
-        .json({
+        .json({data
           //status: 'success',
-          players: data,
+         // players: data,
           //message: 'Retrieved all players'
         });
     })
