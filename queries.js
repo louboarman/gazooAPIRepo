@@ -5,7 +5,7 @@ var options = {
   promiseLib: promise
 };
 
-//var pgp = require('pg-promise')(options);
+var pgp = require('pg-promise')(options);
 //var connectionString = 'postgres://localhost:5432/puppies';
 //var db = pgp(connectionString);
 var cn = {
@@ -16,7 +16,7 @@ var cn = {
     password: '1245KKoo@'
 };
 
-//var db = pgp(cn);
+var db = pgp(cn);
 
 function getAllPlayers(req, res, next) {
   db.any('SELECT name FROM player')
