@@ -16,22 +16,38 @@ var cn = {
     password: '1245KKoo@'
 };
 
-var db = pgp(cn);
+// var db = pgp(cn);
 
-function getAllPlayers(req, res, next) {
-  db.any('SELECT name FROM player')
-    .then(function (data) {
-      res.status(200)
-        .json({data
-          //status: 'success',
-         // players: data,
-          //message: 'Retrieved all players'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "yourusername",
+//   password: "yourpassword",
+//   database: "mydb"
+// });
+function getAllPlayers(){
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT name FROM player", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
 }
+
+// function getAllPlayers(req, res, next) {
+//   db.any('SELECT name FROM player')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           players: data,
+//           message: 'Retrieved all players'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
 
 
 module.exports = {
