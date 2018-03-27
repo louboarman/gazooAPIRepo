@@ -4,7 +4,7 @@ var db = require('../queries');
 
 
 router.get('/api/players', db.getAllPlayers);
-router.get('/api/schedules', dbgetAllSchedules);
+router.get('/api/schedules', db.getAllSchedules);
 //router.get('/api/puppies/:id', db.getSinglePuppy);
 // router.post('/api/puppies', db.createPuppy);
 // router.put('/api/puppies/:id', db.updatePuppy);
