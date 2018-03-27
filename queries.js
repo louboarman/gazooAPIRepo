@@ -33,9 +33,24 @@ function getAllPlayers(req, res, next) {
     });
 }
 
+function getAllSchedules(req, res, next) {
+  db.any('SELECT * FROM schedule ORDER BY weekid')
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          players: data,
+          message: 'Retrieved all schedules'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
 
 module.exports = {
-  getAllPlayers: getAllPlayers
+  getAllPlayers: getAllPlayers,
+  getAllSchedules: getAllSchedules
   //getSinglePuppy: getSinglePuppy,
   //createPuppy: createPuppy,
   //updatePuppy: updatePuppy,
