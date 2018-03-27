@@ -39,7 +39,7 @@ function getAllSchedules(req, res, next) {
       res.status(200)
         .json({
           status: 'success',
-          players: data,
+          schedules: data,
           message: 'Retrieved all schedules'
         });
     })
