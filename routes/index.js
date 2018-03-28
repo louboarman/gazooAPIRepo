@@ -5,7 +5,7 @@ var db = require('../queries');
 
 router.get('/api/players', db.getAllPlayers);
 router.get('/api/schedules', db.getAllSchedules);
-//router.get('/api/puppies/:id', db.getSinglePuppy);
+router.get('/api/matchmembers/:id', db.getMatchMembersforMatchID);
 // router.post('/api/puppies', db.createPuppy);
 // router.put('/api/puppies/:id', db.updatePuppy);
 // router.delete('/api/puppies/:id', db.removePuppy);
