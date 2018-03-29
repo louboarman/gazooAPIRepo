@@ -70,7 +70,7 @@ function getAllMatches(req, res, next) {
       res.status(200)
         .json({
           status: 'success',
-          schedules: data,
+          matches: data,
           message: 'Retrieved all matches'
         });
     })
