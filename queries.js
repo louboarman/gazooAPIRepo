@@ -64,11 +64,26 @@ function getMatchMembersforMatchID(req,res,next){
   });
 }
 
+function getAllMatches(req, res, next) {
+  db.any('SELECT * FROM match ORDER BY weekid')
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          schedules: data,
+          message: 'Retrieved all matches'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
 
 module.exports = {
   getAllPlayers: getAllPlayers,
   getAllSchedules: getAllSchedules,
-  getMatchMembersforMatchID:getMatchMembersforMatchID
+  getMatchMembersforMatchID:getMatchMembersforMatchID,
+  getAllMatches: getAllMatches
   //getSinglePuppy: getSinglePuppy,
   //createPuppy: createPuppy,
   //updatePuppy: updatePuppy,
