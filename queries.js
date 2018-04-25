@@ -79,11 +79,28 @@ function getAllMatches(req, res, next) {
     });
 }
 
+function getMatchDetailsforMatchID(req,res,next){
+  var matchID = parseInt(req.params.id);
+  db.any('SELECT * FROM gbga_getmatchdetailsformatch($1)', matchID)
+  .then(function (data) {
+    res.status(200)
+      .json({
+        status: 'success',
+        schedules: data,
+        message: 'Retrieved all details'
+      });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+}
+
 module.exports = {
   getAllPlayers: getAllPlayers,
   getAllSchedules: getAllSchedules,
   getMatchMembersforMatchID:getMatchMembersforMatchID,
-  getAllMatches: getAllMatches
+  getAllMatches: getAllMatches,
+  getMatchDetailsforMatchID: getMatchDetailsforMatchID
   //getSinglePuppy: getSinglePuppy,
   //createPuppy: createPuppy,
   //updatePuppy: updatePuppy,
