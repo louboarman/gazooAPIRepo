@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../queries');
 
 
-router.get('/api/players', db.getAllPlayers);
+router.get('/api/players', db.getAllPlayers);   
 router.get('/api/schedules', db.getAllSchedules);
 router.get('/api/matchmembers/:id', db.getMatchMembersforMatchID);
 router.get('/api/matches', db.getAllMatches);
