@@ -6,8 +6,6 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-//var connectionString = 'postgres://localhost:5432/puppies';
-//var db = pgp(connectionString);
 var cn = {
     host:'66.198.240.39', 
     port:5432,
@@ -95,16 +93,31 @@ function getMatchDetailsforMatchID(req,res,next){
   });
 }
 
+function getAfterGolfHoles(req,res,next){
+  var players = parseInt(req.params.players);
+  var nine = parseInt(req.params.nine);
+  db.any('SELECT * FROM gbga_getaftergolf($1, $2)', players, nine)
+  .then(function (data) {
+    res.status(200)
+      .json({
+        status: 'success',
+        schedules: data,
+        message: 'Retrieved all details'
+      });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+}
+
 module.exports = {
   getAllPlayers: getAllPlayers,
   getAllSchedules: getAllSchedules,
   getMatchMembersforMatchID:getMatchMembersforMatchID,
   getAllMatches: getAllMatches,
-  getMatchDetailsforMatchID: getMatchDetailsforMatchID
-  //getSinglePuppy: getSinglePuppy,
-  //createPuppy: createPuppy,
-  //updatePuppy: updatePuppy,
-  //removePuppy: removePuppy
+  getMatchDetailsforMatchID: getMatchDetailsforMatchID,
+  getAfterGolfHoles: getAfterGolfHoles
+
 };
 
 

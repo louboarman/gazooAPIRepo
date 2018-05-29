@@ -8,9 +8,7 @@ router.get('/api/schedules', db.getAllSchedules);
 router.get('/api/matchmembers/:id', db.getMatchMembersforMatchID);
 router.get('/api/matches', db.getAllMatches);
 router.get('/api/matchdetails/:id', db.getMatchDetailsforMatchID);
-// router.post('/api/puppies', db.createPuppy);
-// router.put('/api/puppies/:id', db.updatePuppy);
-// router.delete('/api/puppies/:id', db.removePuppy);
+router.get('/api/agholes', db.getAfterGolfHoles);
 
 // application -------------------------------------------------------------
 router.get('/', function (req, res) {
