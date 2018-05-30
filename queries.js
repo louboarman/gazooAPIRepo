@@ -95,10 +95,7 @@ function getMatchDetailsforMatchID(req,res,next){
 
 function getAfterGolfHoles(req,res,next){
   var players = req.params.players;
-  // var nine = parseInt(req.params.nine);
-  // db.any('SELECT * FROM gbga_getaftergolf()')
   db.any('SELECT * FROM gbga_getaftergolf($1)', players)
-  // db.any('SELECT * FROM gbga_getaftergolf($1, $2)', players, nine)
   .then(function (data) {
     res.status(200)
       .json({
